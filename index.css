@@ -812,3 +812,170 @@ footer{
     color: white;
 }
 
+
+/* =========================
+   GLOBAL MOBILE FIXES
+========================= */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .nav-left {
+        gap: 20px;
+    }
+
+    .landing-context h1 {
+        font-size: 40px;
+    }
+
+    .context-btn {
+        font-size: 18px;
+        padding: 8px 18px;
+    }
+
+    .results-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 5%;
+    }
+
+    .how-we-work {
+        flex-direction: column;
+        padding: 80px 40px;
+        gap: 40px;
+    }
+
+    .how-we-work-text {
+        width: 100%;
+    }
+
+    .void {
+        width: 100%;
+    }
+
+    .contact-wrapper {
+        flex-direction: column;
+        padding: 5%;
+    }
+
+    .details, .input {
+        width: 100%;
+        border: none;
+        padding: 5% 0;
+    }
+
+    .footer-middle {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
+
+    .nav-right {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .landing-context h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .context-phrase {
+        text-align: center;
+    }
+
+    .lower-imgs {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .results-title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .grid-content h1 {
+        font-size: 32px;
+    }
+
+    .grid-content p {
+        font-size: 16px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .what-we-do-title {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .how-we-work {
+        padding: 60px 20px;
+    }
+
+    .how-we-work-text h2 {
+        font-size: 28px;
+    }
+
+    .section-desc {
+        max-width: 100%;
+    }
+
+    /* ROTATING CIRCLE SECTION (IMPORTANT FIX) */
+    .void {
+        display: none;
+    }
+
+    /* TESTIMONIALS */
+    .slide {
+        grid-template-columns: 1fr;
+    }
+
+    /* CONTACT */
+    .name {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .field textarea {
+        width: 100%;
+    }
+
+    .field-last {
+        float: none;
+        justify-content: flex-end;
+    }
+
+    /* FOOTER */
+    .footer-upper input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .footer-upper button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .middle-lower p {
+        width: 100%;
+    }
+}
