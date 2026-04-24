@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="Index.css">
       <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Six Global Solutions</title>
@@ -21,23 +21,23 @@
     </div>
  
     <div class="nav-right">
-      <a href="#" class="nav-link">Home</a>
-      <a href="#" class="nav-link">About</a>
+      <a href="Index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
       <a href="#" class="nav-link">Services</a>
       <a href="#" class="nav-link">Contact</a>
-      <button class="nav-btn">Get Started →</button>
+      <button class="nav-btn" onclick="openGetStarted()">Get Started →</button>
     </div>
 
   </nav>
 
   <div class="landing-page">
 
-    <center><button class="landing-btn" data-aos="fade-down">Introducing SIX →</button></center>
+    <center><a href="about.html" style="text-decoration: none;"><button class="landing-btn" data-aos="fade-down">Introducing SIX →</button></a></center>
 
     <div class="landing-context">
       <center><h1 style="color: white; font-weight: bolder;" data-aos="fade-up" data-aos-delay="200">Powerful <span style="color: #1e2b49;">CRM Solutions</span> for <br> Growing Businesses</h1></center>
       <center><p class="context-phrase" style="color: #E2DFD2;" data-aos="fade-up" data-aos-delay="400">Streamline your customer relationships with an intuitive CRM <br> platform. Optimize workflows, and drive business growth with ease.</p></center>
-      <center><button class="context-btn" data-aos="zoom-in" data-aos-delay="600">Learn More</button></center>    
+      <center><a href="#what-we-do-title" style="text-decoration: none;"><button class="context-btn" data-aos="zoom-in" data-aos-delay="600">Learn More</button></a></center>    
     </div>
     
     <br>
@@ -97,7 +97,7 @@
 
   <div class="what-we-do">
 
-    <div class="what-we-do-title">
+    <div class="what-we-do-title" id="what-we-do-title">
     <p data-aos="fade-right" style="font-size: 22px; font-weight: bold; color: #E2DFD2;">What we do</p>
     <p data-aos="fade-right" data-aos-delay="200" style="font-size: 30px; font-weight: bold; color: white;">Services <span style="color: #1e2b49;">built around</span> your goals</p>
     </div>
@@ -382,6 +382,63 @@
 
 </div>
 
+<!-- GET STARTED MODAL -->
+<div class="modal-overlay" id="getStartedModal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeGetStarted()">✕</button>
+
+    <div class="modal-header">
+      <span class="modal-eyebrow">Let's Talk</span>
+      <h2>Start your CRM <span style="color: #007788;">journey</span></h2>
+      <p>Fill in your details and we'll get back to you within 24 hours.</p>
+    </div>
+
+    <form class="modal-form" onsubmit="handleModalSubmit(event)">
+      <div class="modal-field-row">
+        <div class="modal-field">
+          <label>Full Name</label>
+          <input type="text" placeholder="Juan dela Cruz" required />
+        </div>
+        <div class="modal-field">
+          <label>Email Address</label>
+          <input type="email" placeholder="juan@company.com" required />
+        </div>
+      </div>
+
+      <div class="modal-field">
+        <label>Company / Business Name</label>
+        <input type="text" placeholder="Your company name" />
+      </div>
+
+      <div class="modal-field">
+        <label>What can we help you with?</label>
+        <select>
+          <option value="" disabled selected>Select a service</option>
+          <option>CRM Setup</option>
+          <option>CRM Support & Maintenance</option>
+          <option>Workflow Automation</option>
+          <option>Web Development</option>
+          <option>UI/UX Design</option>
+          <option>Custom Solutions</option>
+        </select>
+      </div>
+
+      <div class="modal-field">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your business and what you're looking to achieve..." rows="4" required></textarea>
+      </div>
+
+      <button type="submit" class="modal-submit">Send Inquiry →</button>
+    </form>
+
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-icon">✓</div>
+      <h3>Message sent!</h3>
+      <p>We'll be in touch within 24 hours.</p>
+    </div>
+  </div>
+</div>
+
 <footer>
 
   <div class="footer-upper">
@@ -562,6 +619,31 @@
 <script>
   AOS.init({
     once: false  
+});
+
+function openGetStarted() {
+  document.getElementById('getStartedModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGetStarted() {
+  document.getElementById('getStartedModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('getStartedModal')) closeGetStarted();
+}
+
+function handleModalSubmit(e) {
+  e.preventDefault();
+  document.querySelector('.modal-form').classList.add('hide');
+  document.getElementById('modalSuccess').classList.add('show');
+  setTimeout(closeGetStarted, 2500);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeGetStarted();
 });
 </script>
 </body>
